@@ -81,7 +81,7 @@ const FOOTER_CONTENT: ViewStyle = {
 export interface WelcomeScreenProps extends NavigationScreenProps<{}> {}
 
 export const WelcomeScreen: React.FunctionComponent<WelcomeScreenProps> = props => {
-  const nextScreen = React.useMemo(() => () => props.navigation.navigate("demo"), [
+  const nextScreen = React.useMemo(() => () => props.navigation.navigate("Demo"), [
     props.navigation,
   ])
 
@@ -108,6 +108,7 @@ export const WelcomeScreen: React.FunctionComponent<WelcomeScreenProps> = props 
       </Screen>
       <SafeAreaView style={FOOTER}>
         <View style={FOOTER_CONTENT}>
+          <Button style={CONTINUE} textStyle={CONTINUE_TEXT} tx="test" onPress={nextScreen} />
           <Button
             style={CONTINUE}
             textStyle={CONTINUE_TEXT}
