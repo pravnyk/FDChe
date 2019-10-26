@@ -12,7 +12,7 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = props => {
   return (
     <View>
       <Wallpaper />
-      <Text>testw</Text>
+      <Text>tesfftw</Text>
       <Button title="test" onPress={openDemo} />
     </View>
   )

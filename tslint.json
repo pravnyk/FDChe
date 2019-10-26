@@ -1,0 +1,16 @@
+{
+	"extends": ["tslint-config-airbnb", "tslint-eslint-rules", "tslint-react", "tslint-config-prettier"],
+	"rules": {
+		"no-implicit-dependencies": [true, ["dev", "bizbloqs"]],
+		"ordered-imports": false,
+		"no-console": false,
+		"import-name": false,
+		"strict-boolean-expressions": false,
+		"variable-name": false,
+		"jsx-no-lambda": false,
+		"function-name": false,
+		"prettier": true,
+		"object-shorthand-properties-first": false
+	},
+	"rulesDirectory": ["tslint-plugin-prettier"]
+}
