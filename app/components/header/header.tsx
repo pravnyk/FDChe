@@ -2,10 +2,12 @@ import * as React from "react"
 import { View, ViewStyle, TextStyle } from "react-native"
 import { HeaderProps } from "./header.props"
 import { Button } from "../button"
-import { Icon } from "../icon"
+import { Icon, icons } from "../icon"
 import { Text } from "../text"
 import { spacing } from "../../theme"
 import { translate } from "../../i18n/"
+import { DrawerActions } from "react-navigation"
+import { useStores } from "../../models/root-store"
 
 // static styles
 const ROOT: ViewStyle = {
@@ -20,6 +22,7 @@ const TITLE: TextStyle = { textAlign: "center" }
 const TITLE_MIDDLE: ViewStyle = { flex: 1, justifyContent: "center" }
 const LEFT: ViewStyle = { width: 32 }
 const RIGHT: ViewStyle = { width: 32 }
+const MENU: ViewStyle = { position: "absolute", marginLeft: 10 }
 
 /**
  * Header that appears on many screens. Will hold navigation buttons and screen title.
@@ -37,8 +40,13 @@ export const Header: React.FunctionComponent<HeaderProps> = props => {
   } = props
   const header = headerText || (headerTx && translate(headerTx)) || ""
 
+  const { navigationStore } = useStores()
+
   return (
     <View style={{ ...ROOT, ...style }}>
+      <Button style={MENU} onPress={() => navigationStore.dispatch(DrawerActions.toggleDrawer())}>
+        <Icon icon={"menu"} />
+      </Button>
       {leftIcon ? (
         <Button preset="link" onPress={onLeftPress}>
           <Icon icon={leftIcon} />

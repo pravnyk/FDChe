@@ -1,8 +1,9 @@
+import React from "react"
 import { View, Button } from "react-native"
-import * as React from "react"
-import { Text } from "../../components/text"
 import { Wallpaper } from "../../components/wallpaper"
 import { NavigationScreenProps } from "react-navigation"
+import { Header } from "../../components/header"
+import { Text } from "../../components/text"
 
 export interface HomeScreenProps extends NavigationScreenProps<{}> {}
 
@@ -12,8 +13,9 @@ export const HomeScreen: React.FunctionComponent<HomeScreenProps> = props => {
   return (
     <View>
       <Wallpaper />
-      <Text>tesfftw</Text>
-      <Button title="test" onPress={openDemo} />
+      <Header headerTx="homeScreen.title" />
+      <Text text="Your new app, " />
+      <Button title="Go to Demo page" onPress={openDemo} />
     </View>
   )
 }
